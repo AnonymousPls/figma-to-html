@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  /* (Bài học 47) */
 }
 
 html {
@@ -9,5 +10,101 @@ html {
 
 body {
   font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
 }
 /* Khôi phục lại cỡ chữ mặc định tính theo rem (~ 16px)*/
+
+/* ============== Common ============== */
+a {
+  text-decoration: none;
+}
+
+.main-content {
+  width: 1170px;
+  max-width: calc(100% - 48px);
+  /* Bài học 85 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0 16px;
+  line-height: 50px;
+  /* Đặt chiều cao cho nút bấm */
+  min-width: 118px;
+  /* Xác định chiều rộng tối thiểu của nút bấm */
+  /* Class này là của thẻ a với display:inline => Không set được padding nên cần chuyển sang display khác (Bài học 51)*/
+  color: #fff;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 24.5px;
+  background: #171100;
+}
+
+/* ============== Header ============== */
+.header {
+  /* background: #8a06be; */
+  background: #fffcf4;
+}
+
+.header.fixed {
+  position: sticky;
+  top: -28px;
+  /* Cách top = 36 - 28 = 8px thì dừng lại  */
+}
+
+.header .body {
+  display: flex;
+  align-items: center;
+  /* Căn giữa các item theo trục cross-axis (Flex Container) (Bài học 89.3) */
+  padding: 36px 0px 8px;
+  /* Chừa 8px để sticky không bị dính sát vào phần tử khác (Bài học 87.6 position:sticky) */
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.nav ul {
+  display: flex;
+}
+
+.nav a {
+  position: relative;
+  /* Nút home chưa đúng, dùng position:absolute (Bài học 87.2) để điều chỉnh lại vị trí */
+  color: #5f5b53;
+  font-size: 1.6rem;
+  padding: 8px 21px;
+}
+
+.nav li.active a,
+.nav a:hover {
+  color: #171100;
+  /* font-weight: 600; */
+  /* Lúc này khi chữ dày lên làm các chữ kế bên bị giật giật gây khó chịu => Dùng text-shadow bài học 65 */
+  text-shadow: 1px 0 0 currentColor;
+}
+
+.nav li.active a::after {
+  position: absolute;
+  left: 21px;
+  bottom: 6px;
+  /* Nút home chưa đúng, dùng position:absolute bài học 87.2 để điều chỉnh lại vị trí */
+  display: block;
+  content: "";
+  width: 12px;
+  height: 2px;
+  /* Nút home đang ở trạng thái display: inline; => Không set được width, height (không hiển thị được dấu gạch dưới nút home) cần chuyển sang block hoặc inline-block */
+  border-radius: 1px;
+  background: #171100;
+}
+
+.header .btn-sign-up {
+  min-width: 144px;
+}
+
+.header .action {
+  margin-left: 49px;
+}
