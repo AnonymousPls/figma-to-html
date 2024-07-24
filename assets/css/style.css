@@ -3,6 +3,11 @@
   /* (Bài học 47) */
 }
 
+:root {
+  --font-heading: "Sen", sans-serif;
+  --primary-color: #ffb900;
+}
+
 html {
   font-size: 62.5%;
   /* => 1 rem = 10px */
@@ -39,8 +44,12 @@ a {
   text-align: center;
   font-size: 1.6rem;
   font-weight: 600;
-  border-radius: 24.5px;
+  border-radius: 999px;
   background: #171100;
+}
+
+.btn:hover {
+  opacity: 0.9;
 }
 
 /* ============== Header ============== */
@@ -50,6 +59,7 @@ a {
 }
 
 .header.fixed {
+  z-index: 1;
   position: sticky;
   top: -28px;
   /* Cách top = 36 - 28 = 8px thì dừng lại  */
@@ -107,4 +117,190 @@ a {
 
 .header .action {
   margin-left: 49px;
+}
+
+/* ============== Hero ============== */
+.hero {
+  padding: 56px 0 65px;
+  /* Chuyển sang develop mode, chọn nút Sign Up đo xuống phần hình ảnh được 64px - 8px phần padding được 56px */
+  background: #fffcf4;
+}
+
+.hero .body {
+  display: flex;
+}
+
+/* ============== Hero Left ============== */
+.hero .media-block {
+  position: relative;
+  /* Cần dùng position:absolute (Bài học 87.2) để điều chỉnh lại vị trí của thẻ con */
+  width: 48%;
+}
+
+.hero .media-block .img {
+  /* Lúc này ảnh đang rất to làm vỡ giao diện */
+  width: 470px;
+  height: 685px;
+  /* Kích thước của ảnh, không phải của block chứa ảnh */
+  object-fit: cover;
+  /* Tránh bị vỡ ảnh */
+  border-radius: 20px;
+  /* Bo góc theo thiết kế */
+}
+
+.hero .hero-summary {
+  position: absolute;
+  /* Cần dùng position:absolute (Bài học 87.2) để điều chỉnh lại vị trí của thẻ con */
+  bottom: 48px;
+  right: 0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05);
+  width: 270px;
+  padding: 24px;
+}
+
+.hero-summary .item {
+  display: flex;
+  align-items: center;
+}
+
+.hero-summary .item + .item {
+  margin-top: 22px;
+}
+/* Tác động lên các thẻ có class là item đặt sắt ngay sau các thẻ cũng có class là item */
+
+.hero-summary .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff9e8;
+}
+
+.hero-summary .icon2 {
+  background-color: #fcefff;
+}
+
+.hero-summary .icon3 {
+  background-color: #ebeaff;
+}
+
+.hero-summary .info {
+  margin-left: 16px;
+}
+
+.hero-summary label {
+  color: #5f5b53;
+  font-size: 1.4rem;
+  /* font-weight: 400; mặc định là 400 => Bỏ đi */
+  line-height: 1.86; /* 185.714% */
+}
+
+.hero-summary .title {
+  color: #171100;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px; /* 166.667% */
+}
+
+/* ============== Hero Right ============== */
+.hero .content-block {
+  position: relative;
+  /* Cần dùng position:absolute (Bài học 87.2) để điều chỉnh lại vị trí của thẻ con */
+  width: 52%;
+  padding-left: 130px;
+  padding-top: 64px;
+  /* 214 -150 = 64px => h1 .hero .content-block cách top là 64px */
+}
+
+.hero .heading {
+  color: #171100;
+  /* font-family: Sen; */
+  font-family: var(--font-heading);
+  /* CSS Variables Bài học 86 */
+  font-size: 5.8rem;
+
+  font-weight: 700;
+  line-height: 1.17;
+  /* 117.241% */
+  letter-spacing: -1.16px;
+}
+
+.hero .desc {
+  color: #5f5b53;
+  font-size: 1.8rem;
+  line-height: 1.67;
+  /* 166.667% */
+  margin-top: 22px;
+}
+
+.hero .cta-group {
+  margin-top: 38px;
+  display: flex;
+  /* Thẻ button là thẻ inline => Bị sai vị trí nên cần display: flex; ở cả khối cta-group */
+  align-items: center;
+}
+
+.hero .hero-cta {
+  border-radius: 32px;
+  background: var(--primary-color);
+
+  min-width: 180px;
+  line-height: 64px;
+}
+
+.hero .watch-video {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  /* Thẻ button là thẻ inline => Bị sai vị trí nên cần display: flex; ở cả khối cta-group */
+  margin-left: 28px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hero .watch-video .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .watch-video span {
+  color: #171100;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.67;
+  /* 166.667% */
+  margin-left: 14px;
+}
+
+.hero .desc-recent {
+  margin-top: 48px;
+}
+
+.hero .stat {
+  margin-top: 8px;
+}
+
+.hero .stat strong {
+  color: #171100;
+  font-family: var(--font-heading);
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 1.23;
+  /* 122.727% */
+  margin-right: 15px;
+}
+
+.hero .stat strong:nth-child(2) {
+  margin-left: 28px;
 }
