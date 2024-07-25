@@ -645,12 +645,19 @@ a {
   margin-top: 55px;
   display: flex;
   gap: 30px;
+  overflow: hidden;
+  /* Do khoảng gap: 30px và width: 33.33%; ở .blog .item {} nên item 3 bị mất một khoảng */
 }
 
 .blog .item {
-  width: 33.33%;
+  /* width: 33.33%; */
+  width: calc(33.33% - 20px);
+  /* Do khoảng gap: 30px và width: 33.33%; ở .blog .item {} nên item 3 bị mất một khoảng */
   border-radius: 16px;
   background: #fff;
+  flex-shrink: 0;
+  /* transform: translateX(-100%); */
+  /* transition: all ease 0.5s; */
 }
 
 .blog .item:hover {
@@ -713,8 +720,29 @@ a {
 
 .blog .item .btn {
   margin-top: 12px;
+  font-size: 1.4rem;
 }
 
 .blog .item .btn:hover {
   background-color: var(--primary-color);
+}
+
+.blog .dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 38px;
+}
+
+.blog .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5f5b53;
+  cursor: pointer;
+}
+
+.blog .dot.active {
+  background: var(--primary-color);
+  cursor: default;
 }
